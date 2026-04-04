@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.MenuController">
+   <children>
+      <DialogPane layoutX="-8.0" prefHeight="57.0" prefWidth="609.0" />
+      <Text layoutX="213.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You x logined in" wrappingWidth="175.13000106811523" />
+      <Circle fx:id="circle1" layoutX="150.0" layoutY="223.0" radius="100.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <ImagePattern>
+                <image>
+                    <Image url="@котик1.jpg" />
+                </image>
+            </ImagePattern>
+         </fill>
+      </Circle>
+      <Circle fx:id="circle2" layoutX="428.0" layoutY="223.0" radius="100.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+             <ImagePattern>
+                 <image>
+                     <Image url="@котик2.jpg" />
+                 </image>
+             </ImagePattern>
+         </fill>
+      </Circle>
+   </children>
+</AnchorPane>
