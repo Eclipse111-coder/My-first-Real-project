@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.TODOcontroller">
+   <top>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button fx:id="btnAddTask" mnemonicParsing="false" onAction="#AddingTask" text="add New">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor></Button>
+            <Button fx:id="btnDelTask" mnemonicParsing="false" onAction="#deleteTask" text="Delete">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" text="Edit task" onAction="#editTask">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" text="Show Description" textAlignment="CENTER" onAction="#showDesc" />
+        </buttons>
+      </ButtonBar>
+   </top>
+   <center>
+          <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <ProgressBar prefHeight="20.0" prefWidth="644.0" progress="0.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
