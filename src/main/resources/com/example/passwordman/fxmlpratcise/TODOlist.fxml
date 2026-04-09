@@ -16,12 +16,12 @@
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" text="Edit task" onAction="#editTask">
+            <Button mnemonicParsing="false" onAction="#editTask" text="Edit task">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" text="Show Description" textAlignment="CENTER" onAction="#showDesc" />
+            <Button mnemonicParsing="false" onAction="#showDesc" text="Show Description" textAlignment="CENTER" />
         </buttons>
       </ButtonBar>
    </top>

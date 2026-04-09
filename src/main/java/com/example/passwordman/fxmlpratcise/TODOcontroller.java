@@ -17,6 +17,15 @@ public class TODOcontroller {
     File taskInfo = new File("taskInfo.txt");
     ObservableList<Task> items = FXCollections.observableArrayList();
 
+    @FXML
+    ListView<Task> listView;
+
+    @FXML
+    public void initialize() {
+        loadTaskFromFile();
+        listView.setItems(items);
+    }
+
     public void AddingTask(ActionEvent event) {
         Dialog<Task> userChoice = new Dialog<>();
         VBox dialogVBox = new VBox(10);
@@ -43,9 +52,6 @@ public class TODOcontroller {
         saveTaskIntoFile();
         userChoice.getDialogPane();
     }
-        @FXML
-        private ListView<Task> listView;
-
         @FXML
         Button btnAddTask;
 
@@ -161,4 +167,7 @@ public class TODOcontroller {
             return selected;
         }
 
+    public void showProb(ActionEvent event) {
+        System.out.println(listView);
     }
+}
