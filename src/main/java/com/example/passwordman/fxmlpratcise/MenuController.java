@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -34,7 +35,7 @@ public class MenuController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -46,7 +47,7 @@ public class MenuController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -55,7 +56,7 @@ public class MenuController {
     public void TODOset(ActionEvent event) {
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TODOlist.fxml")));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -63,5 +64,24 @@ public class MenuController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void exchanger(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("exchanger.fxml")));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();   // <-- самое важное: показать реальную ошибку
+            // Опционально: показать диалог с ошибкой пользователю
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Не удалось загрузить окно обмена валют");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+
+        }
     }
 }

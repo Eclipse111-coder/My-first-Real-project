@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.TODOcontroller">
    <top>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -31,4 +32,21 @@
    <bottom>
       <ProgressBar prefHeight="20.0" prefWidth="644.0" progress="0.0" BorderPane.alignment="CENTER" />
    </bottom>
+
+    <left>
+        <VBox fx:id="sideMenu" prefHeight="400" prefWidth="100" style="-fx-background-color: 2c3e50">
+
+            <Button onAction="#switchToMenu" prefHeight="26.0" prefWidth="108.0" text="Main" />
+            <Button onAction="#openSettings" prefHeight="26.0" prefWidth="101.0" text="settings" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Exchanger" onAction="#exchanger" />
+            <Button mnemonicParsing="false" text="Password Generator">
+                <font>
+                    <Font size="10.0" />
+                </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#TODOset" prefHeight="26.0" prefWidth="133.0" text="TODO List" />
+            <Button mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="104.0" text="Log out" />
+        </VBox>
+    </left>
+
 </BorderPane>
