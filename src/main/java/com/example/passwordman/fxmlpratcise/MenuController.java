@@ -61,7 +61,12 @@ public class MenuController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("An error");
+            alert.setHeaderText("can`t load TODO list");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
 
     }
@@ -74,11 +79,28 @@ public class MenuController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();   // <-- самое важное: показать реальную ошибку
-            // Опционально: показать диалог с ошибкой пользователю
+            e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Не удалось загрузить окно обмена валют");
+            alert.setTitle("Error");
+            alert.setHeaderText("Can`t load exchanger window");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+
+        }
+    }
+
+    public void openPasswordGen(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Passwordgen.fxml")));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Can`t load Password generator window");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
 

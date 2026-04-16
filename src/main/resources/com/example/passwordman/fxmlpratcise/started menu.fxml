@@ -34,7 +34,7 @@
            <Button onAction="#switchToMenu" prefHeight="26.0" prefWidth="108.0" text="Main" />
            <Button onAction="#openSettings" prefHeight="26.0" prefWidth="101.0" text="settings" />
       <Button mnemonicParsing="false" onAction="#exchanger" prefHeight="26.0" prefWidth="104.0" text="Exchanger" />
-      <Button mnemonicParsing="false" text="Password Generator">
+      <Button mnemonicParsing="false" text="Password Generator" onAction="#openPasswordGen">
          <font>
             <Font size="10.0" />
          </font>
