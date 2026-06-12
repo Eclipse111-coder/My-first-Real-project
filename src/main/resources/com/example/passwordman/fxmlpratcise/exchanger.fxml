@@ -4,7 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="388.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.exchangerController">
+<AnchorPane fx:id="rootPane" prefHeight="388.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.exchangerController" >
+
     <GridPane layoutX="7.0" prefHeight="400.0" prefWidth="513.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="101.0" />

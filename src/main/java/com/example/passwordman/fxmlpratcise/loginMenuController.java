@@ -9,23 +9,56 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class loginMenuController {
 
+    @FXML
+    private GridPane rootPane;
     private Scene scene;
     private Stage stage;
     private Parent root;
 
-    public void switchToMenu(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("started menu.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public loginMenuController() throws FileNotFoundException {
+    }
+
+    public void switchToMenu() {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("started menu.fxml")));
+
+            stage = (Stage) userNameField.getScene().getWindow();
+
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        checkRemember();
+        try {
+            java.io.File cssFile = new java.io.File("MainStyle.css");
+            if (cssFile.exists()) {
+                String cssUrl = cssFile.toURI().toURL().toExternalForm();
+                // Подключаем файл
+                rootPane.getStylesheets().add(cssUrl);
+                // Говорим панели использовать стили из этого файла
+                rootPane.getStyleClass().add("anchor-pane");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -38,9 +71,9 @@ public class loginMenuController {
 
         if (userName.equals("admin") && password.equals("adminR")) {
 
-        switchToMenu(event);
+            switchToMenu();
 
-        }else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -51,4 +84,17 @@ public class loginMenuController {
 
     @FXML
     private TextField userNameField;
+
+
+    File configFile = new File("Settings.conf");
+    Scanner fileScan = new Scanner(configFile);
+
+    private void checkRemember() {
+
+        String line = fileScan.nextLine();
+        boolean rememberMeEnabled;
+        if (line.equals("true")) {
+            javafx.application.Platform.runLater(this::switchToMenu);
+        }
+    }
 }

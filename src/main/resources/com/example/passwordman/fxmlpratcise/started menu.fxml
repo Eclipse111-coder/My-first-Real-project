@@ -7,9 +7,11 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.MenuController">
-      <DialogPane layoutX="97.0" prefHeight="57.0" prefWidth="504.0" />
-      <Text layoutX="213.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You x logined in" wrappingWidth="175.13000106811523" />
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.passwordman.fxmlpratcise.MenuController">
+      <DialogPane layoutX="97.0" prefHeight="57.0" prefWidth="504.0"
+                  xmlns="http://javafx.com/javafx"
+                  xmlns:fx="http://javafx.com/fxml"/>
+      <Text layoutX="213.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You logged as an admin" wrappingWidth="175.13000106811523" />
       <Circle fx:id="circle1" layoutX="201.0" layoutY="223.0" radius="100.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <ImagePattern>

@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,6 +21,8 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class TODOcontroller {
+    @FXML
+    private BorderPane rootPane;
 
     File taskInfo = new File("taskInfo.txt");
     ObservableList<Task> items = FXCollections.observableArrayList();
@@ -31,6 +34,21 @@ public class TODOcontroller {
     public void initialize() {
         loadTaskFromFile();
         listView.setItems(items);
+        try {
+            java.io.File cssFile = new java.io.File("MainStyle.css");
+            if (cssFile.exists()) {
+                String cssUrl = cssFile.toURI().toURL().toExternalForm();
+
+                // Подключаем файл
+                rootPane.getStylesheets().add(cssUrl);
+
+                // Говорим панели использовать стили из этого файла
+                rootPane.getStyleClass().add("anchor-pane");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void AddingTask(ActionEvent event) {

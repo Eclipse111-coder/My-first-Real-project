@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class exchangerController {
     public ChoiceBox<String> currencyChoose;
     public TextField textFieldResult;
     public TextField textFieldEntering;
+    @FXML
+    private AnchorPane rootPane;
 
     @FXML
     private void initialize() {
@@ -36,6 +39,20 @@ public class exchangerController {
         currencyChoose.setValue("RUB --> USDT");
 
         btnConvert.setOnAction(this::handleConvert);
+        try {
+            java.io.File cssFile = new java.io.File("MainStyle.css");
+            if (cssFile.exists()) {
+                String cssUrl = cssFile.toURI().toURL().toExternalForm();
+
+                // Подключаем файл
+                rootPane.getStylesheets().add(cssUrl);
+
+                // Говорим панели использовать стили из этого файла
+                rootPane.getStyleClass().add("anchor-pane");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     Button btnConvert;
